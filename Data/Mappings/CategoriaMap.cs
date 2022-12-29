@@ -13,6 +13,19 @@ namespace Mapeamento.Data.Mappings{
             builder.HasKey( x=> x.Id);
 
             builder.Property( x=> x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
+
+            builder.Property(x => x.Nome)
+                .IsRequired() // não aceita valores nulos
+                .HasColumnName("Nome") // nome coluna
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80); // max de caracteres
+
+
+            builder.Property(x => x.Slug)
+                .IsRequired() // não aceita valores nulos
+                .HasColumnName("Nome") // nome coluna
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(80); // max de caracteres
         }
     }
 }
