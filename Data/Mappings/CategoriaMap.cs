@@ -9,6 +9,10 @@ namespace Mapeamento.Data.Mappings{
         public void Configure(EntityTypeBuilder<Categoria> builder)
         {
             builder.ToTable("Categoria");
+
+            builder.HasKey( x=> x.Id);
+
+            builder.Property( x=> x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
         }
     }
 }
